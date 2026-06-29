@@ -582,6 +582,23 @@ img {
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -2px 0 rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.12);
 }
 
+.venmo-block {
+  margin-top: 40px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.venmo-block img {
+  display: block;
+  width: 160px;
+  height: auto;
+}
+
 /* Donate Card / Module */
 .donate-card {
   background: var(--white);
