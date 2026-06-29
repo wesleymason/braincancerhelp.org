@@ -71,7 +71,7 @@
         <img src="logo.svg" alt="Thompson-Mason Brain Cancer Foundation" class="logo-img">
       </a>
       <div class="header-actions">
-        <a href="https://www.paypal.com/donate/?hosted_button_id=YGJEK27J2CWQE" target="_blank" rel="noopener" class="btn-donate-header">Donate</a>
+        <a href="#" class="btn-donate-header" id="btn-donate-trigger">Donate</a>
       </div>
     </div>
   </header>
@@ -243,6 +243,29 @@
       </div>
     </div>
   </footer>
+
+  <!-- Hidden PayPal donate button triggered by header Donate button -->
+  <div style="position:absolute;width:0;height:0;overflow:hidden;opacity:0;pointer-events:none;" aria-hidden="true">
+    <div id="donate-button"></div>
+  </div>
+  <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+  <script>
+    PayPal.Donation.Button({
+      env: 'production',
+      hosted_button_id: 'YGJEK27J2CWQE',
+      image: {
+        src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
+        alt: 'Donate with PayPal button',
+        title: 'PayPal - The safer, easier way to pay online!',
+      }
+    }).render('#donate-button');
+
+    document.getElementById('btn-donate-trigger').addEventListener('click', function(e) {
+      e.preventDefault();
+      var ppBtn = document.querySelector('#donate-button input[type="image"], #donate-button img, #donate-button button');
+      if (ppBtn) ppBtn.click();
+    });
+  </script>
 
   <script src="script.js"></script>
   <script src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"></script>
