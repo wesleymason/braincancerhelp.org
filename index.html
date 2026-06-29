@@ -208,6 +208,7 @@
           <div class="donate-quote">
 <blockquote>The average brain cancer patient travels over 50 miles for treatment. For low-income families, that distance can mean the difference between receiving care and going without.</blockquote>
           </div>
+          <a href="#" class="btn-donate-paypal" id="btn-donate-paypal-trigger">Donate via PayPal</a>
         </div>
         <div class="donate-module fade-in">
           <div data-zeffy-embed data-form-url="/embed/donation-form/donate-today-123"></div>
@@ -260,11 +261,13 @@
       }
     }).render('#donate-button');
 
-    document.getElementById('btn-donate-trigger').addEventListener('click', function(e) {
+    function triggerPayPal(e) {
       e.preventDefault();
       var ppBtn = document.querySelector('#donate-button input[type="image"], #donate-button img, #donate-button button');
       if (ppBtn) ppBtn.click();
-    });
+    }
+    document.getElementById('btn-donate-trigger').addEventListener('click', triggerPayPal);
+    document.getElementById('btn-donate-paypal-trigger').addEventListener('click', triggerPayPal);
   </script>
 
   <script src="script.js"></script>
